@@ -118,20 +118,22 @@
     }
     .phone-img {
   display: block;
-  width: 80%;
-  max-width: 410px;
+  width: 65%;
+  max-width: 350px;
   height: auto;
   margin: 40px auto 0 auto;
+  clip-path: inset(0% 0% 0% 0%);
   background: transparent;
-  filter: drop-shadow(0 0 80px rgba(255, 255, 255, 0.45)); /* яркое белое свечение */
+
+  /* Сильное и мягкое свечение по краям */
+  filter: drop-shadow(0 0 120px rgba(255, 255, 255, 0.5)) 
+          drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
   transition: filter 0.3s ease;
-  clip-path: inset(0% 2%); /* сверху 0%, справа 2%, снизу 0%, слева 2% — обрезаем черные края */
-
 }
 
-.phone-img:hover {
-  filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.25)); /* при наведении — усиливаем эффект */
-}
+
+
+
 
     footer {
       margin-top: 30px;
@@ -175,8 +177,9 @@
     <button class="submit-btn">Submit</button>
   </div>
 
-  <img class="phone-img" src="{{ url_for('static', filename='assets/chatpop.png') }}" alt="Phone Image" />
-
+  <div class="phone-wrapper">
+    <img class="phone-img" src="{{ url_for('static', filename='assets/chatpop.png') }}" alt="Phone Image" />
+  </div>
   <footer>© parde.com</footer>
 
   <script>
