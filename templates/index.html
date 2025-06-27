@@ -1,221 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PARDE Landing</title>
-  
-    <!-- Import DM Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
-  
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-  
-      html, body {
-        height: 100%;
-        overflow: hidden;
-        background-color: black;
-        color: white;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      }
-  
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        position: relative;
-      }
-  
-      header {
-        position: absolute;
-        top: 20px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        z-index: 10;
-      }
-  
-      .logo {
-        width: 32px;
-      }
-  
-      .social-icon {
-        width: 50px;
-        transition: transform 0.3s ease;
-      }
-  
-      .social-icon:hover {
-        transform: scale(1.1);
-      }
-  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PARDE Landing</title>
+
+  <!-- Import DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 10;
+    }
+
+    .logo { width: 32px; }
+
+    .social-icon {
+      width: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .headline {
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+      margin-top: 100px;
+      margin-bottom: 30px;
+      letter-spacing: 0.2px;
+    }
+
+    .button-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .waitlist-btn {
+      background: linear-gradient(90deg, #FFFFFF 0%, #AAAAAA 100%);
+      color: black;
+      font-weight: 600;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .input-wrapper {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border-radius: 999px;
+      overflow: hidden;
+      min-height: 50px;
+      margin-bottom: 40px;
+      border: 1px solid #333;
+    }
+
+    .phone-input {
+      padding: 12px 20px;
+      border: none;
+      outline: none;
+      width: 240px;
+      font-size: 1rem;
+      background-color: #0D0D0D;
+      color: white;
+    }
+
+    .phone-input::placeholder { color: #999; }
+
+    .submit-btn {
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: black;
+      background: linear-gradient(90deg, #F3F3F3, #E2E2E2);
+      border-radius: 999px;
+      margin-left: -10px;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .phone-img {
+      display: block;
+      width: 100%;
+      max-width: 410px;
+      height: auto;
+      margin: 0 auto;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .logo {
+       width: 24px;
+    }
+
+
+    @media (max-width: 767px) {
       .headline {
-        text-align: center;
-        font-family: 'DM Sans', sans-serif;
-        font-weight: 300;
-        font-size: 2.2rem;
-        line-height: 2.8rem;
-        margin-top: 100px;
-        margin-bottom: 30px;
-        letter-spacing: 0.2px;
-      }
-  
-      .button-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 40px;
-      }
-  
-      .waitlist-btn {
-        background: linear-gradient(90deg, #FFFFFF 0%, #AAAAAA 100%);
-        color: black;
-        font-weight: 600;
-        border: none;
-        padding: 12px 26px;
-        border-radius: 999px;
-        cursor: pointer;
-        font-size: 1rem;
-        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-      }
-  
-      .input-wrapper {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        border-radius: 999px;
-        overflow: hidden;
-        min-height: 50px;
-        margin-bottom: 40px;
-        border: 1px solid #333;
-      }
-  
-      .phone-input {
-        padding: 12px 20px;
-        border: none;
-        outline: none;
-        width: 240px;
-        font-size: 1rem;
-        background-color: #0D0D0D;
-        color: white;
-      }
-  
-      .phone-input::placeholder {
-        color: #999;
+        font-size: 1.7rem;
+        line-height: 2.2rem;
       }
 
-      .submit-btn {
-        border: none;
-        padding: 12px 30px;
-        font-size: 1rem;
-        font-weight: 600;
-        color: black;
-        background: linear-gradient(90deg, #F3F3F3, #E2E2E2);
-        border-radius: 999px;
-        margin-left: -10px;
-        z-index: 2;
-        cursor: pointer;
-      }
-  
       .phone-img {
-        display: block;
-        width: 100%;
-        max-width: 410px;
-        height: auto;
-        margin: 0 auto;
-        box-shadow: none;
-        background: transparent;
+        max-width: 90%;
       }
-  
-      footer {
-        margin-top: 30px;
-        color: #888;
-        font-size: 0.9rem;
-      }
-  
-      @media (max-width: 767px) {
-        .headline {
-          font-size: 1.7rem;
-          line-height: 2.2rem;
-        }
-  
-        .phone-img {
-          max-width: 90%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img src="{{ url_for('static', filename='assets/logo1.jpg') }}" alt="Logo">
-      <a href="https://www.instagram.com/parde.app/" target="_blank">
-        <img src="{{ url_for('static', filename='assets/Frame 12.png') }}" alt="Instagram">
-      </a>
-    </header>
-  
-    <div class="headline">
-      Any Event. Any Crowd.<br />
-      One Platform.
-    </div>
-  
-    <div class="button-wrapper">
-      <button class="waitlist-btn">Join Waitlist</button>
-    </div>
-  
-    <div class="input-wrapper">
-      <input class="phone-input" type="text" placeholder="Phone Number" />
-      <button class="submit-btn">Submit</button>
-    </div>
-  
-    <img src="{{ url_for('static', filename='assets/chatpop.png') }}" alt="Phone">
-  
-    <footer>© parde.com</footer>
-  
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const waitlistBtn = document.querySelector('.waitlist-btn');
-        const buttonWrapper = document.querySelector('.button-wrapper');
-        const inputWrapper = document.querySelector('.input-wrapper');
-        const submitBtn = document.querySelector('.submit-btn');
-        const phoneInput = document.querySelector('.phone-input');
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='assets/logo1.jpg') }}" class="logo" style="width: 24px;" alt="Logo" />
+    <a href="https://www.instagram.com/parde.app/" target="_blank">
+      <img src="{{ url_for('static', filename='assets/Frame 12.png') }}" class="social-icon" alt="Instagram" />
+    </a>
+  </header>
 
-        waitlistBtn.addEventListener('click', () => {
-          buttonWrapper.style.display = 'none';
-          inputWrapper.style.display = 'flex';
-        });
+  <div class="headline">
+    Any Event. Any Crowd.<br />
+    One Platform.
+  </div>
 
-        submitBtn.addEventListener('click', async () => {
-          const phone = phoneInput.value.trim();
-          if (!phone) return alert("Please enter a phone number");
+  <div class="button-wrapper">
+    <button class="waitlist-btn">Join Waitlist</button>
+  </div>
 
-          try {
-            const res = await fetch("http://0.0.0.0:10000/submit", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ phone }),
-            });
+  <div class="input-wrapper">
+    <input class="phone-input" type="text" placeholder="Phone Number" />
+    <button class="submit-btn">Submit</button>
+  </div>
 
-            const data = await res.json();
-            if (data.status === "success") {
-              alert("Number submitted successfully!");
-              phoneInput.value = "";
-            } else {
-              alert("Submission failed.");
-            }
-          } catch (err) {
-            console.error(err);
-            alert("Server error.");
-          }
-        });
+  <img class="phone-img" src="{{ url_for('static', filename='assets/chatpop.png') }}" alt="Phone Image" />
+
+  <footer>© parde.com</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const waitlistBtn = document.querySelector('.waitlist-btn');
+      const buttonWrapper = document.querySelector('.button-wrapper');
+      const inputWrapper = document.querySelector('.input-wrapper');
+      const submitBtn = document.querySelector('.submit-btn');
+      const phoneInput = document.querySelector('.phone-input');
+
+      waitlistBtn.addEventListener('click', () => {
+        buttonWrapper.style.display = 'none';
+        inputWrapper.style.display = 'flex';
       });
-    </script>
-  </body>
+
+      submitBtn.addEventListener('click', async () => {
+        const phone = phoneInput.value.trim();
+        if (!phone) return alert("Please enter a phone number");
+
+        try {
+          const res = await fetch("/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ phone }),
+          });
+
+          const data = await res.json();
+          if (data.status === "success") {
+            alert("Number submitted successfully!");
+            phoneInput.value = "";
+          } else {
+            alert("Submission failed.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Server error.");
+        }
+      });
+    });
+  </script>
+</body>
 </html>
