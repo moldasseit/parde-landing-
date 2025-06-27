@@ -116,16 +116,22 @@
       z-index: 2;
       cursor: pointer;
     }
-
     .phone-img {
-      display: block;
-      width: 100%;
-      max-width: 410px;
-      height: auto;
-      margin: 0 auto;
-      box-shadow: none;
-      background: transparent;
-    }
+  display: block;
+  width: 50%;
+  max-width: 410px;
+  height: auto;
+  margin: 40px auto 0 auto;
+  background: transparent;
+  filter: drop-shadow(0 0 80px rgba(255, 255, 255, 0.45)); /* яркое белое свечение */
+  transition: filter 0.3s ease;
+  clip-path: inset(0% 2%); /* сверху 0%, справа 2%, снизу 0%, слева 2% — обрезаем черные края */
+
+}
+
+.phone-img:hover {
+  filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.25)); /* при наведении — усиливаем эффект */
+}
 
     footer {
       margin-top: 30px;
@@ -133,10 +139,7 @@
       font-size: 0.9rem;
     }
 
-    .logo {
-       width: 24px;
-    }
-
+    
 
     @media (max-width: 767px) {
       .headline {
@@ -152,7 +155,7 @@
 </head>
 <body>
   <header>
-    <img src="{{ url_for('static', filename='assets/logo1.jpg') }}" class="logo" style="width: 24px;" alt="Logo" />
+    <img src="{{ url_for('static', filename='assets/logo1.jpg') }}" class="logo" alt="Logo" />
     <a href="https://www.instagram.com/parde.app/" target="_blank">
       <img src="{{ url_for('static', filename='assets/Frame 12.png') }}" class="social-icon" alt="Instagram" />
     </a>
