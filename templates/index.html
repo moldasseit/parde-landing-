@@ -152,9 +152,9 @@
 </head>
 <body>
   <header>
-    <img class="logo" src="assets/logo1.jpg" alt="Logo" />
+    <img class="logo" src="{{ url_for('static', filename='assets/logo1.jpg') }}" alt="Logo" />
     <a href="https://www.instagram.com/parde.app/" target="_blank">
-      <img class="social-icon" src="assets/Frame 12.png" alt="Instagram" />
+      <img class="social-icon" src="{{ url_for('static', filename='assets/Frame 12.png') }}" alt="Instagram" />
     </a>
   </header>
 
@@ -172,7 +172,7 @@
     <button class="submit-btn">Submit</button>
   </div>
 
-  <img class="phone-img" src="assets/chatpop.png" alt="Phone with PARDE" />
+  <img class="phone-img" src="{{ url_for('static', filename='assets/chatpop.png') }}" alt="Phone with PARDE" />
 
   <footer>© parde.com</footer>
 

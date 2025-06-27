@@ -1,26 +1,31 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Разрешаем запросы с любого домена
+CORS(app)
 
-# Настройка доступа к Google Sheets
+# Google Sheets credentials
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_name("ecstatic-moon-461104-h1-771c431d304b.json", scope)
 client = gspread.authorize(creds)
-sheet = client.open("parde_waitlist").sheet1  # имя Google Sheets файла
+sheet = client.open("parde_waitlist").sheet1
 
+# Serve index.html from templates
+@app.route('/')
+def home():
+    return render_template("index.html")
+
+# Handle form submission
 @app.route('/submit', methods=['POST'])
-def submit_phone():
+def submit():
     data = request.get_json()
-    phone = data.get('phone')
-    if not phone:
-        return jsonify({"status": "error", "message": "No phone number provided"}), 400
-
-    sheet.append_row([phone])
-    return jsonify({"status": "success"})
+    number = data.get("phone")
+    if number:
+        sheet.append_row([number])
+        return jsonify({"status": "success"}), 200
+    return jsonify({"status": "error", "message": "Missing phone"}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
