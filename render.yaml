@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: parde-landing
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: ecstatic-moon-461104-h1-771c431d304b.json
+    region: frankfurt
