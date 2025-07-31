@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PARDE Landing</title>
 
-  <!-- Import DM Sans -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
@@ -92,7 +91,7 @@
       border: 1px solid #333;
     }
 
-    .phone-input {
+    .email-input {
       padding: 12px 20px;
       border: none;
       outline: none;
@@ -102,7 +101,7 @@
       color: white;
     }
 
-    .phone-input::placeholder { color: #999; }
+    .email-input::placeholder { color: #999; }
 
     .submit-btn {
       border: none;
@@ -116,32 +115,24 @@
       z-index: 2;
       cursor: pointer;
     }
+
     .phone-img {
-  display: block;
-  width: 65%;
-  max-width: 350px;
-  height: auto;
-  margin: 40px auto 0 auto;
-  clip-path: inset(0% 0% 0% 0%);
-  background: transparent;
-
-  /* Сильное и мягкое свечение по краям */
-  filter: drop-shadow(0 0 120px rgba(255, 255, 255, 0.5)) 
-          drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
-  transition: filter 0.3s ease;
-}
-
-
-
-
+      display: block;
+      width: 65%;
+      max-width: 350px;
+      height: auto;
+      margin: 40px auto 0 auto;
+      background: transparent;
+      filter: drop-shadow(0 0 120px rgba(255, 255, 255, 0.5)) 
+              drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
+      transition: filter 0.3s ease;
+    }
 
     footer {
       margin-top: 30px;
       color: #888;
       font-size: 0.9rem;
     }
-
-    
 
     @media (max-width: 767px) {
       .headline {
@@ -173,7 +164,7 @@
   </div>
 
   <div class="input-wrapper">
-    <input class="phone-input" type="text" placeholder="Phone Number" />
+    <input class="email-input" type="email" placeholder="Email Address" />
     <button class="submit-btn">Submit</button>
   </div>
 
@@ -188,7 +179,7 @@
       const buttonWrapper = document.querySelector('.button-wrapper');
       const inputWrapper = document.querySelector('.input-wrapper');
       const submitBtn = document.querySelector('.submit-btn');
-      const phoneInput = document.querySelector('.phone-input');
+      const emailInput = document.querySelector('.email-input');
 
       waitlistBtn.addEventListener('click', () => {
         buttonWrapper.style.display = 'none';
@@ -196,20 +187,20 @@
       });
 
       submitBtn.addEventListener('click', async () => {
-        const phone = phoneInput.value.trim();
-        if (!phone) return alert("Please enter a phone number");
+        const email = emailInput.value.trim();
+        if (!email) return alert("Please enter a valid email");
 
         try {
           const res = await fetch("/submit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ phone }),
+            body: JSON.stringify({ email }),
           });
 
           const data = await res.json();
           if (data.status === "success") {
-            alert("Number submitted successfully!");
-            phoneInput.value = "";
+            alert("Email submitted successfully!");
+            emailInput.value = "";
           } else {
             alert("Submission failed.");
           }
