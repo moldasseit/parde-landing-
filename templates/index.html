@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PARDE Landing</title>
 
+  <!-- Import DM Sans -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
@@ -118,13 +119,15 @@
 
     .phone-img {
       display: block;
-      width: 65%;
-      max-width: 350px;
+      width: 100%;
+      max-width: 410px;
       height: auto;
-      margin: 40px auto 0 auto;
+      margin: 20px auto 0 auto;
       background: transparent;
-      filter: drop-shadow(0 0 120px rgba(255, 255, 255, 0.5)) 
-              drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
+      clip-path: inset(0% 2% 0% 2%);
+      filter:
+        drop-shadow(0 0 30px rgba(255, 255, 255, 0.25))
+        drop-shadow(0 0 60px rgba(255, 255, 255, 0.1));
       transition: filter 0.3s ease;
     }
 
@@ -171,6 +174,7 @@
   <div class="phone-wrapper">
     <img class="phone-img" src="{{ url_for('static', filename='assets/chatpop.png') }}" alt="Phone Image" />
   </div>
+
   <footer>© parde.com</footer>
 
   <script>
